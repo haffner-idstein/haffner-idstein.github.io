@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Häuschen mit Gartenblick in Idstein</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        header {
+            font-family: 'Tahoma'; 
+            background-color: #D32F2F; 
+			height: 5em;
+        }
+		
+        main {
+            font-family: 'Tahoma'; 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto;
+			padding-left: 10px;
+			padding-right: 10px;
+        }
+        h1 {
+            color: #D32F2F; 
+            font-size: 2.5em;
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+        /* Media Query für kleine Bildschirme (z.B. Handy) */
+        @media only screen and (max-width: 767px) {
+            h1 {
+                font-size: 2em;
+                padding-left: 25px; /* Links nur 25px Freiraum */
+                padding-right: 25px; /* Andere Padding-Einstellungen beibehalten */
+            }
+        }
+        a {
+            color: #FF6347;
+        }
+		a:hover {
+            color: red; /* Rot beim Hover beibehalten */
+        }
+        footer {
+            font-family: 'Tahoma'; 
+            text-align: center;
+        }
+        .mountain-svg {
+            width: 100%;
+            height: auto;
+            fill: #FF6347;
+        }
+        .link-container {
+            display: inline-block;
+            background-color: #FF6347;
+            width: 100%;
+            transition: background-color 0.3s, color 0.3s;
+            padding-bottom: 0.5em;
+        }
+        .link-container:hover {
+            background-color: #FF6347;
+            color: white;
+        }
+        /* Link-Styling */
+        .link-container a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+	<header>
+		
+	</header>
+
+			
+	<main>		
+		<h1>Impressum</h1>
+		<p>Alexander Haffner</p>
+		<p>Limburger Straße 20, 65510 Idstein</p>
+		<p><a href="mailto:haffner.idstein@gmail.com">haffner.idstein@gmail.com</a></p>
+		<br/><br/><br/>
+	</main>
+	<footer>
+	
+        <img src="footer.svg" alt="Berge" class="mountain-svg">
+   <div class="link-container">
+        <a href="index.htm" class="imp-link">zurück</a>
+    </div>
+</footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
