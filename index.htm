@@ -9,131 +9,162 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        header {
-            font-family: 'Tahoma'; 
-            background-color: #D32F2F; 
-        }
-        nav {
-            font-family: 'Tahoma'; 
-            text-align: center;
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-        .custom-btn {
-            background-color: #FF6347;
-            color: #FFFFFF;
-            font-size: 1.2em;
-            margin: 10px;
-            padding: 0.5em;
-            width: auto;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            display: block; 
-		}
-        .custom-btn:hover {
-            background-color: #D32F2F; /* Dunklerer Rotton beim Hover-Effekt */
-            color: #FFFFFF; /* Schriftfarbe beim Hovern beibehalten */
-        }
-        /* Media Query für große Bildschirme */
-        @media only screen and (min-width: 768px) {
-            .custom-btn {
-                display: inline-block;
-                width: calc(160px - 20px);
-                margin: 10px;
-            }
-        }
-        /* Media Query für kleine Bildschirme (z.B. Handy) */
-        @media only screen and (max-width: 767px) {
-            .custom-btn {
-                width: 100%;
-                margin: 10px 0;
-                background-color: #FFFFFF;
-                color: #FF6347;
-                border: 1px solid #FF6347; /* Border-Farbe auf Rot setzen */
-            }
-        }
-        main {
-            font-family: 'Tahoma'; 
-            text-align: left; 
-            max-width: 800px; 
-            margin: 0 auto;
-			padding-left: 10px;
-			padding-right: 10px;
-        }
-        h1 {
-            color: #FFFFFF; 
-            font-size: 2.5em;
-            padding-left: 2em;
-            padding-top: 0.5em;
-            padding-bottom: 0.5em;
-        }
-        /* Media Query für kleine Bildschirme (z.B. Handy) */
-        @media only screen and (max-width: 767px) {
-            h1 {
-                font-size: 1.5em;
-                padding-left: 15px; /* Links nur 25px Freiraum */
-                padding-right: 15px; /* Andere Padding-Einstellungen beibehalten */
-            }
-        }
-        h2 {
-            color: #FF6347; 
-            font-size: 2.5em;
-            text-align: left; 
-            margin-top: 1em;
-            margin-bottom: 1em;
-        }
-        a {
-            color: #FF6347;
-        }
-        .carousel-item img {
-            width: auto;
-            height: auto;
-            max-height: 600px;
-            max-width: 100%;
-            object-fit: contain; /* Anpassen des Bildes innerhalb des Containers */
-        }
-        .carousel {
-            width: 100%;
-            overflow: hidden; /* Überlauf verstecken, um die Höhe zu erzwingen */
-        }
-        .carousel-inner {
-            height: 100%; /* Füllen Sie die Höhe des Sliders */
-        }
-        .icon {
-            margin-right: 10px;
-        }
-		.map {
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-        }
-        footer {
-            font-family: 'Tahoma'; 
-            text-align: center;
-        }
-        .mountain-svg {
-            width: 100%;
-            height: auto;
-            fill: #FF6347;
-        }
-        .link-container {
-            display: inline-block;
-            background-color: #FF6347;
-            width: 100%;
-            transition: background-color 0.3s, color 0.3s;
-            padding-bottom: 0.5em;
-        }
-        .link-container:hover {
-            background-color: #FF6347;
-            color: white;
-        }
-        /* Link-Styling */
-        .link-container a {
-            color: white;
-            text-decoration: none;
-        }
+
+
+	    :root {
+    --primary-color: #FF6347;
+    --secondary-color: #D32F2F;
+    --text-color-light: #FFFFFF;
+    --font-main: 'Tahoma', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+}
+
+header {
+    background-color: var(--secondary-color);
+}
+
+nav {
+    text-align: center;
+    margin: 2em 0 1em;
+}
+
+/* Mobile: Navigation ausblenden */
+@media (max-width: 767px) {
+    nav {
+        display: none;
+    }
+}
+
+.custom-btn {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    font-size: 1.2em;
+    margin: 10px;
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+}
+
+.custom-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Buttons */
+@media (min-width: 768px) {
+    .custom-btn {
+        display: inline-block;
+        width: 140px;
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-btn {
+        width: 100%;
+        background-color: var(--text-color-light);
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+    }
+}
+
+/* Allgemeine Stile */
+main {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+h1, h2 {
+    font-size: 2.5em;
+}
+
+h1 {
+    color: var(--text-color-light);
+    padding: 0.5em 0 0.5em 2em;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin: 1em 0;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.5em;
+        padding: 0.5em 15px;
+    }
+}
+
+a {
+    color: var(--primary-color);
+}
+
+/* Carousel */
+.carousel-item img {
+    max-height: 600px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+/* Map Styling */
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}
+
+/* SVG Styling */
+.mountain-svg {
+    width: 100%;
+    height: auto;
+    fill: var(--primary-color);
+}
+
+/* Link Container */
+.link-container {
+    display: inline-block;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding-bottom: 0.5em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link-container:hover {
+    background-color: var(--primary-color);
+}
+
+.link-container a {
+    color: white;
+    text-decoration: none;
+}
+
+	    
     </style>
 </head>
 <body>
