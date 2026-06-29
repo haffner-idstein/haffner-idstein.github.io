@@ -303,7 +303,7 @@
           <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <h2 class="font-display text-2xl">Verfügbarkeit</h2>
-              <p class="mt-2 text-sm text-zinc-700">Monatsansicht. An- und Abreisetage gelten als belegt.</p>
+
             </div>
 
             <div class="flex items-center gap-2">
@@ -321,21 +321,21 @@
 
             <div id="calGrid" class="mt-2 grid grid-cols-7 gap-1.5" role="grid" aria-label="Kalender"></div>
 
-            <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-zinc-600">
-              <span class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1">
-                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
-                Frei
-              </span>
-              <span class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1">
-                <span class="relative h-2.5 w-2.5 overflow-hidden rounded-full bg-rose-400 ring-1 ring-zinc-900/20">
-                  <span aria-hidden="true" class="absolute inset-0 opacity-80" style="background-image:repeating-linear-gradient(135deg, rgba(24,24,27,0.32) 0px, rgba(24,24,27,0.32) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 6px);"></span>
+            <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-zinc-600" aria-label="Legende">
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1" aria-label="Frei">
+                <span class="h-5 w-5 rounded-md border border-zinc-900/15 bg-emerald-50 shadow-[0_10px_30px_rgba(16,24,40,0.06)]" aria-hidden="true"></span>
+              </div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1" aria-label="Belegt">
+                <span class="relative h-5 w-5 overflow-hidden rounded-md border border-zinc-900/25 bg-zinc-50 shadow-[0_10px_30px_rgba(16,24,40,0.06)]" aria-hidden="true">
+                  <span class="absolute inset-0 opacity-90" style="background-image:repeating-linear-gradient(135deg, rgba(24,24,27,0.38) 0px, rgba(24,24,27,0.38) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 6px);"></span>
                 </span>
-                Belegt
-              </span>
-              <span class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1">
-                <span class="h-2.5 w-2.5 rounded-full bg-sky-400"></span>
-                Heute
-              </span>
+              </div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-zinc-900/10 bg-zinc-50 px-2.5 py-1" aria-label="Heute">
+                <span class="relative h-5 w-5 rounded-md border border-zinc-900/15 bg-white shadow-[0_10px_30px_rgba(16,24,40,0.06)]" aria-hidden="true">
+                  <span class="absolute right-1 top-1 h-2 w-2 rounded-full bg-sky-400"></span>
+                </span>
+              </div>
+
               <span id="calStatus" class="ml-auto text-[11px] text-zinc-500"></span>
             </div>
           </div>
@@ -553,7 +553,9 @@
 
           const cell = document.createElement('div');
           cell.setAttribute('role','gridcell');
-          cell.setAttribute('aria-label', `${key}: ${isBusy ? 'belegt' : 'frei'}`);
+          const stateText = isToday ? 'heute' : (isBusy ? 'belegt' : 'frei');
+          cell.setAttribute('aria-label', `${key}: ${stateText}`);
+          cell.title = `${key}: ${stateText}`;
 
           // Design: minimal text in cells (colors + small number)
           const base = 'relative rounded-xl border p-1.5 shadow-[0_10px_30px_rgba(16,24,40,0.06)]';
@@ -564,7 +566,7 @@
           // - busy: diagonal hatch overlay + stronger border
           // - free: clean surface
           const state = isBusy
-            ? ' border-zinc-900/25 bg-rose-50'
+            ? ' border-zinc-900/25 bg-zinc-50'
             : ' border-zinc-900/15 bg-emerald-50';
 
           cell.className = base + state + out + ringToday;
