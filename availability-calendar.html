@@ -133,7 +133,8 @@
   <script>
     // --- Configuration ---
     // The GitHub Action will generate this file.
-    const AVAIL_URL = './availability.json';
+    // Cache-bust to avoid GitHub Pages/CDN/browser caching stale JSON
+    const AVAIL_URL = './availability.json?v=' + Date.now();
 
     // --- Date helpers (local time, day-granular) ---
     function ymd(d){
