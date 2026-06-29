@@ -1,0 +1,43 @@
+name: Update availability
+
+on:
+  schedule:
+    - cron: "0 * * * *" # hourly
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: availability-update
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate availability.json
+        env:
+          BOOKING_ICAL_URL: ${{ secrets.BOOKING_ICAL_URL }}
+          HORIZON_MONTHS: "6"
+        run: node scripts/generate-availability.mjs
+
+      - name: Commit updated availability
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add availability.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Update availability"
+          git push
