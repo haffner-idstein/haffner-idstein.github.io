@@ -27,7 +27,7 @@ jobs:
       - name: Generate availability.json
         env:
           BOOKING_ICAL_URL: ${{ secrets.BOOKING_ICAL_URL }}
-          HORIZON_MONTHS: "6"
+          HORIZON_MONTHS: "8"
         run: node scripts/generate-availability.mjs
 
       - name: Commit updated availability
