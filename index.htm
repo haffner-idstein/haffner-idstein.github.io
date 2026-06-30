@@ -321,9 +321,8 @@
 
             <div id="calGrid" class="mt-2 grid grid-cols-7 gap-1.5" role="grid" aria-label="Kalender"></div>
 
-      
-
-              <span id="calStatus" class="ml-auto text-[11px] text-zinc-500"></span>
+            <div class="mt-4 flex items-center justify-end">
+              <span id="calStatus" class="text-[11px] text-zinc-500"></span>
             </div>
           </div>
         </section>
@@ -352,7 +351,7 @@
         <!-- Kontakt -->
         <section id="kontakt" class="rounded-3xl border border-zinc-900/10 bg-white/80 p-6 md:p-8 shadow-soft">
           <h2 class="font-display text-2xl">Kontakt</h2>
-          <p class="mt-3 text-sm text-zinc-700">Sie erreichen uns per E-Mail.</p>
+          <p class="mt-3 text-sm text-zinc-700">Sie erreichn uns per E-Mail.</p>
           <div class="mt-6">
             <a class="inline-flex items-center justify-center rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-white shadow-soft hover:bg-terracotta-400 active:bg-terracotta-600" href="mailto:haffner.idstein@gmail.com">
               Anfragen
@@ -561,8 +560,8 @@
           // Diagonal hatch pattern for "Belegt" (works even if colors are hard to tell)
           if(isBusy){
             const hatch = document.createElement('div');
-            hatch.className = 'pointer-events-none absolute inset-0 rounded-xl opacity-70';
-            hatch.style.backgroundImage = 'repeating-linear-gradient(135deg, rgba(24,24,27,0.22) 0px, rgba(24,24,27,0.22) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 8px)';
+            hatch.className = 'pointer-events-none absolute inset-0 rounded-xl opacity-80';
+            hatch.style.backgroundImage = 'repeating-linear-gradient(135deg, rgba(24,24,27,0.30) 0px, rgba(24,24,27,0.30) 2px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 8px)';
             hatch.style.mixBlendMode = 'multiply';
             hatch.setAttribute('aria-hidden','true');
             cell.appendChild(hatch);
