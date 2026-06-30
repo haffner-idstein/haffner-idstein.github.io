@@ -122,8 +122,14 @@ function expandBusyDates(events, rangeStartUTC, rangeEndUTC) {
 
 async function main() {
   const now = new Date();
+
+  // Range starts today (UTC day-granular)
   const rangeStartUTC = startOfDayUTC(now);
-  const rangeEndUTC = startOfDayUTC(addDaysUTC(addMonthsUTC(rangeStartUTC, HORIZON_MONTHS), -1));
+
+  // Range ends at the *last day of the last month* in the horizon.
+  // Example: If today is 2026-06-30 and HORIZON_MONTHS=6, we want 2026-12-31 (not 2026-12-29).
+  const endMonthStartUTC = startOfDayUTC(addMonthsUTC(new Date(Date.UTC(rangeStartUTC.getUTCFullYear(), rangeStartUTC.getUTCMonth(), 1)), HORIZON_MONTHS - 1));
+  const rangeEndUTC = startOfDayUTC(new Date(Date.UTC(endMonthStartUTC.getUTCFullYear(), endMonthStartUTC.getUTCMonth() + 1, 0)));
 
   const res = await fetch(BOOKING_ICAL_URL, { headers: { "User-Agent": "availability-bot/1.0" } });
   if (!res.ok) throw new Error(`Failed to fetch ICS: HTTP ${res.status}`);
