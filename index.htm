@@ -151,37 +151,65 @@
     <section class="mx-auto max-w-6xl px-4 pb-16">
       <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
 
-        <!-- Fotos -->
-        <section id="fotos" class="rounded-3xl border border-zinc-900/10 bg-white/80 p-6 md:p-8 shadow-soft">
-          <div class="flex items-end justify-between gap-6">
-            <div>
-              <h2 class="font-display text-2xl">Fotos</h2>
-            </div>
-            <div class="hidden sm:flex items-center gap-2">
-              <button id="prevBtn" class="rounded-full border border-zinc-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-800 shadow-soft hover:bg-white hover:border-zinc-900/25">Zurück</button>
-              <button id="nextBtn" class="rounded-full bg-terracotta-500 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-terracotta-600 active:bg-terracotta-700">Weiter</button>
-            </div>
-          </div>
 
-          <div class="mt-6 overflow-hidden rounded-2xl border border-zinc-900/10 bg-white shadow-soft">
-            <div id="carousel" class="relative">
-              <img id="carouselImg" class="h-[320px] w-full object-contain bg-[#f6f4ee]" alt="Foto" src="Fotos/1_Wohnen.jpeg" />
-              <div class="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-white/95 to-transparent px-4 py-3">
-                <div class="text-xs text-zinc-800" id="carouselLabel">Wohnzimmer</div>
-                <div class="text-xs text-zinc-500" id="carouselCount">1 / 12</div>
-              </div>
-            </div>
-          </div>
+<!-- Fotos -->
+<section id="fotos" class="rounded-3xl border border-zinc-900/10 bg-white/80 p-6 md:p-8 shadow-soft overflow-x-hidden">
+  <div class="flex min-w-0 items-end justify-between gap-6">
+    <div class="min-w-0">
+      <h2 class="font-display text-2xl break-words">Fotos</h2>
+    </div>
 
-          <div class="mt-4 flex sm:hidden items-center justify-between gap-2">
-            <button id="prevBtnMobile" class="w-1/2 rounded-full border border-zinc-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-800 shadow-soft hover:bg-white hover:border-zinc-900/25">Zurück</button>
-            <button id="nextBtnMobile" class="w-1/2 rounded-full bg-terracotta-500 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-terracotta-600 active:bg-terracotta-700">Weiter</button>
-          </div>
+    <div class="hidden sm:flex min-w-0 items-center gap-2">
+      <button
+        id="prevBtn"
+        class="shrink-0 rounded-full border border-zinc-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-800 shadow-soft hover:bg-white hover:border-zinc-900/25"
+      >
+        Zurück
+      </button>
+      <button
+        id="nextBtn"
+        class="shrink-0 rounded-full bg-terracotta-500 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-terracotta-600 active:bg-terracotta-700"
+      >
+        Weiter
+      </button>
+    </div>
+  </div>
 
-          <div class="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-6" id="thumbs"></div>
-        </section>
+  <div class="mt-6 overflow-hidden rounded-2xl border border-zinc-900/10 bg-white shadow-soft">
+    <div id="carousel" class="relative">
+      <img
+        id="carouselImg"
+        class="h-[320px] w-full object-contain bg-[#f6f4ee] block"
+        alt="Foto"
+        src="Fotos/1_Wohnen.jpeg"
+      />
+      <div class="absolute inset-x-0 bottom-0 flex min-w-0 items-center justify-between gap-3 bg-gradient-to-t from-white/95 to-transparent px-4 py-3">
+        <div class="text-xs text-zinc-800 min-w-0 truncate" id="carouselLabel">Wohnzimmer</div>
+        <div class="text-xs text-zinc-500 shrink-0" id="carouselCount">1 / 12</div>
+      </div>
+    </div>
+  </div>
 
-<!-- Ausstattung -->
+  <div class="mt-4 flex sm:hidden min-w-0 items-center justify-between gap-2">
+    <button
+      id="prevBtnMobile"
+      class="w-1/2 min-w-0 rounded-full border border-zinc-900/15 bg-white/70 px-4 py-2 text-sm font-semibold text-zinc-800 shadow-soft hover:bg-white hover:border-zinc-900/25"
+    >
+      Zurück
+    </button>
+    <button
+      id="nextBtnMobile"
+      class="w-1/2 min-w-0 rounded-full bg-terracotta-500 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-terracotta-600 active:bg-terracotta-700"
+    >
+      Weiter
+    </button>
+  </div>
+
+  <div class="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-6 min-w-0" id="thumbs"></div>
+</section>
+
+
+		<!-- Ausstattung -->
         <section id="ausstattung" class="rounded-3xl border border-zinc-900/10 bg-white/80 p-6 md:p-8 shadow-soft">
           <h2 class="font-display text-2xl">Ausstattung</h2>
 <ul class="mt-5 grid gap-3 text-sm text-zinc-800">
