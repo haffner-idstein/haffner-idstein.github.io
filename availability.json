@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_at": "2026-07-08T22:02:10Z",
+    "generated_at": "2026-07-09T00:05:57Z",
     "source": "booking.com iCal",
-    "range_start": "2026-07-08",
+    "range_start": "2026-07-09",
     "range_end": "2027-02-28",
     "horizon_months": 8,
     "rule": "arrival_and_departure_days_busy"
